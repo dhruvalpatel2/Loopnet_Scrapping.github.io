@@ -1,3 +1,14 @@
+
+---
+title: "US Maps and Social Data Analysis"
+output: html_document
+Name : Dhruval Patel
+Class: Data Wrangling with R 
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(shiny)
 library(leaflet)
 library(readr)
@@ -8,14 +19,19 @@ library(tidyr)
 library(sf)
 library(ggplot2)
 library(scales)
-library(shiny)
-library(ggplot2)
-library(dplyr)
-library(readr)
-library(scales)  # For percent formatting
 library(RColorBrewer)
 library(cowplot)
+```
 
+ Introduction
+
+This report presents a comprehensive analysis of US social data through interactive maps and statistical plots. Our goal is to explore various demographic and economic indicators to provide insights into business and social environments across the states.
+
+US Listings Map
+
+The first section of our application provides a map visualizing real estate listings across the US, integrated with data on economic indicators influencing business environments.
+
+```{r listings-map,echo = TRUE}
 ui <- fluidPage(
   titlePanel("US Maps and Social Data"),
   tabsetPanel(
@@ -73,9 +89,13 @@ ui <- fluidPage(
     )
   ))
 
+```
 
+ State Demographics Map
 
-# Define server logic for the application
+This section provides a demographic breakdown of each state with associated economic data. We present insights into median income levels, crime rates, and how these may interrelate.
+
+```{r state-demographics-map,echo = FALSE}
 server <- function(input, output, session) {
   
   # First Map: State Demographics
@@ -321,5 +341,15 @@ server <- function(input, output, session) {
   
 }
 
-# Replace 'path_to/...' with the actual file paths where your CSV files are stored.
 shinyApp(ui = ui, server = server)
+  
+```
+
+Analysis of Economic Factors and Crime Rate
+
+In our analysis, we explore the relationship between economic factors like median household income and crime rates across different states.
+
+
+Conclusion
+
+The application developed through R Shiny and visualized in this report allows for an interactive exploration of socio-economic data across the US. By integrating various data sources and utilizing statistical analyses, we aim to provide a clear picture of the social and economic landscape of the US, helping stakeholders make informed decisions.
